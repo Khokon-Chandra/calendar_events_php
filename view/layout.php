@@ -15,11 +15,11 @@
         <!-- custom style -->
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body class="bg-light">
       
 
 
-        <div class="container">
+        <div class="container" style="max-width: 600px;margin: 0 auto;">
             {{content}}
         </div>
 
