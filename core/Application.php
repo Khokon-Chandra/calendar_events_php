@@ -15,6 +15,7 @@ class Application
         $this->view = new View();
         $this->request = new Request();
         $this->route   = new Router($this->request);
+        $this->db      = new Database();
         self::$app     = $this;
     }
 
