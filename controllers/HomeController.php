@@ -3,13 +3,14 @@ namespace controllers;
 
 use core\Date;
 use core\Request;
+use core\Controller;
 use core\Application;
 use request\EventRequest;
 
 /**
  * Home controllers
  */
-class HomeController
+class HomeController extends Controller
 {
     
     public function create()
@@ -23,6 +24,7 @@ class HomeController
     {
         $messages = [];
         $attributes = $request->validate(EventRequest::rules());
+
         if($attributes){
             $attributes['start'] = Date::getUnixTimeStamp($attributes['start']);
             $attributes['end']   = Date::getUnixTimeStamp($attributes['end']);
@@ -35,9 +37,8 @@ class HomeController
                 Application::$app->db->create($attributes);
                 $messages['success'] = "Successfully Event Created";
             }
-            $messages['errors'] = $request->errors;
-            
        }
+       $messages['errors'] = $request->errors;
        return view('form',$messages);
 
     }

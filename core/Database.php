@@ -73,4 +73,20 @@ class Database extends \PDO
 
 
 
+    public function createEventsTable()
+    {
+        $sql = "CREATE TABLE IF NOT EXISTS `events` (
+          `id` bigint(11) NOT NULL,
+          `title` varchar(255) DEFAULT NULL,
+          `description` text DEFAULT NULL,
+          `start` int(11) NOT NULL,
+          `end` int(11) NOT NULL,
+          `all_day` tinyint(1) NOT NULL DEFAULT 0,
+          `admin_id` int(11) NOT NULL,
+          `recur_id` int(11) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+        return $this->exec($sql);
+    }
+
+
 }

@@ -32,7 +32,7 @@ class Router
         $method = $this->request->getMethod();
         $callback = $this->routes[$method][$path]??false;
         if(!$callback){
-            return "Page Not Found !!";
+            return view('404');
         }
         if(is_string($callback)){
             return $callback;

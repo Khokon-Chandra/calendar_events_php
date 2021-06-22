@@ -7,7 +7,7 @@
         <?php if(isset($success)){
             printf('<div class="alert alert-success" role="alert">%s</div>',$success);
         } ?>
-        <form method="POST" action="">
+        <form method="POST" action="/">
             <div class="mb-4">
                 <input type="text" name="title" class="form-control py-3" placeholder="Event Title">
                 <div class="invalid-feedback d-block"><?= $errors['title']??'' ?></div>
